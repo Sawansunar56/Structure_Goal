@@ -1,6 +1,7 @@
 # structure_goal
 
-A new Flutter project.
+An app designed and developed by me so that I can structure the task and goals I have.
+And to go through them with much discipline. 
 
 ## Getting Started
 
