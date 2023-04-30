@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../constants/route_const.dart';
 import 'stack_view.dart';
 import 'queue_view.dart';
 import 'package:structure_goal/constants/color.dart';
-import '../modals/task_modal.dart';
-import '../services/database_helper.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -69,16 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
-          onPressed: () async {
-            const Task firstShit = Task(
-                id: 1,
-                content: "contenHet",
-                stackOrder: 1,
-                queueOrder: 2,
-                priorityOrder: 4,
-                createdAt: "createdAsdft");
-
-            await DatabaseHelper.addTask(firstShit);
+          onPressed: () {
+            GoRouter.of(context).pushNamed(RouteConstants.addRouteName);
           },
           backgroundColor: buttonColor,
           child: const Icon(

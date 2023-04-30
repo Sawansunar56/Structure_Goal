@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import '../constants/color.dart';
-import '../services/database_helper.dart';
 import '../modals/task_modal.dart';
 
 class TaskView extends StatelessWidget {
-  const TaskView({super.key});
+  final Task task;
+  const TaskView({super.key, required this.task});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () async {
-        List<Task>? first = await DatabaseHelper.getAllTask();
-
-        first?.forEach((element) {
-          print(element);
-        });
+      onTap: () {
+        print(task.content);
       },
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
@@ -44,7 +40,7 @@ class TaskView extends StatelessWidget {
           iconSize: 18,
           color: primaryColor,
           onPressed: () {
-            print("Hellow From the delete");
+            print("gfoes");
           },
         ),
       ),

@@ -1,24 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:structure_goal/constants/color.dart';
-import 'screens/home_page.dart';
+import 'package:structure_goal/routes/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final _router = AppRouter();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter game',
       theme: ThemeData(
+        inputDecorationTheme: const InputDecorationTheme(
+            labelStyle: TextStyle(decorationColor: Colors.purple)),
         scaffoldBackgroundColor: primaryBackground,
         primarySwatch: Colors.purple,
       ),
-      home: const MyHomePage(),
+      routeInformationParser: _router.router.routeInformationParser,
+      routerDelegate: _router.router.routerDelegate,
       debugShowCheckedModeBanner: false,
     );
   }
